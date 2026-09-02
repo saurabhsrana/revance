@@ -1,0 +1,25 @@
+
+# Playwright / Cucumber
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+/screenshots/
+
+# Allure & reports
+reports/allure-results/
+reports/allure-report/
+reports/cucumber-report.json
+reports/traceability-matrix.md
+reports/*.png
+reports/*.html
+reports/jira-defects/
+
+# Local / generated
+downloads/*
+!downloads/.gitkeep
+*.log
+.env
+.env.*

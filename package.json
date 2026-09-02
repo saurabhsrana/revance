@@ -1,0 +1,38 @@
+{
+  "name": "playwrightautomation",
+  "version": "2.0.0",
+  "description": "Lean Cucumber + Playwright loyalty automation framework",
+  "type": "commonjs",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:smoke": "cucumber-js --tags @smoke",
+    "test:regression": "cucumber-js --tags @regression",
+    "test:welcome": "cucumber-js --tags @welcome",
+    "test:completeprofile": "cross-env TEST_ENV=qa cucumber-js --tags @completeprofile",
+    "test:api-enrollment": "cross-env TEST_ENV=qa cucumber-js --tags @apiEnrollment",
+    "test:loyalty-profile": "cross-env TEST_ENV=qa cucumber-js --tags @loyaltyProfile",
+    "report:clean": "node -e \"require('fs').rmSync('reports/allure-results',{recursive:true,force:true}); require('fs').rmSync('reports/allure-report',{recursive:true,force:true});\"",
+    "report:generate": "allure generate reports/allure-results -o reports/allure-report --config allurerc.cjs",
+    "report:open": "allure open reports/allure-report",
+    "test:report": "npm run report:clean && cross-env TEST_ENV=qa npm test && npm run report:generate && npm run report:open",
+    "traceability:generate": "ts-node scripts/generate-traceability-matrix.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.7.0",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.4.0",
+    "allure": "^3.6.0",
+    "allure-cucumberjs": "^3.7.1",
+    "allure-js-commons": "^3.7.1",
+    "cross-env": "^10.1.0",
+    "eslint": "^10.4.0",
+    "eslint-plugin-playwright": "^2.10.4",
+    "globals": "^17.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.60.0"
+  }
+}
